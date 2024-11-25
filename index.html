@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" class="dark" style="color-scheme: dark;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta content="Pack Metadata Fixer" property="og:title">
+    <meta content="Konomi" property="og:site_name">
+    <meta content="A tool to fix some metadata fields of maps in map packs" property="og:description">
+    <meta content="website" property="og:type">
+    <meta content="#8866dd" data-react-helmet="true" name="theme-color">
+    
+    <link rel="stylesheet" href="styles.css">
+
+    <title>Pack Metadata Fixer</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a class="back-button" href="../">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="64" height="64" class="arrow-icon">
+                    <path fill="currentColor" d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                </svg>
+            </a>
+            <h1>Pack Metadata Fixer</h1>
+        </div>
+        <h4>By Konomi</h4>
+        
+        <p class="subtitle"><i>Moves the artist and title of each map into the diffname, and clears the source. Should help with the process required for getting a pack loved.</i></p>
+
+        <!-- Input for .osu files -->
+        <div class="file-input">
+            <label for="filesInput">Upload .osu files:</label>
+            <input type="file" id="filesInput" accept=".osu" multiple>
+        </div>
+
+        <!-- Input for the updated artist -->
+        <div class="text-input">
+            <label for="newArtistInput">Updated mapset artist:</label>
+            <textarea rows="1" id="newArtistInput"></textarea>
+        </div>
+
+        <!-- Input for the updated title -->
+        <div class="text-input">
+            <label for="newTitleInput">Updated mapset title:</label>
+            <textarea rows="1" id="newTitleInput"></textarea>
+        </div>
+
+        <!-- Input for the updated romanised title -->
+        <!-- <div class="text-input">
+            <label for="newUnromanisedTitleInput">New mapset unromanised title (Optional):</label>
+            <textarea rows="1" id="newUnromanisedTitleInput"></textarea>
+        </div> -->
+
+        <!-- Input for the updated romanised artist -->
+        <!-- <div class="text-input">
+            <label for="newUnromanisedArtistInput">New mapset unromanised artist (Optional):</label>
+            <textarea rows="1" id="newUnromanisedArtistInput"></textarea>
+        </div> -->
+
+        <!-- Input for the format of the diffnames -->
+        <div class="text-input">
+            <label for="diffnameFormatInput">Difficulty name format:</label>
+            <textarea rows="1" id="diffnameFormatInput">{artist} - {title} [{difficulty}]</textarea>
+            <p class="subtext" id="formatExample"><b>Example:</b> [Inabakumori - Haru no Sekibaku [Normal]]</p>
+        </div>
+
+        <!-- Input for whether to use the unromanised title and artist -->
+        <!-- <div class="checkbox">
+            <input type="checkbox" id="useUnromanisedCheckbox" checked>
+            <label for="useUnromanisedCheckbox">Prefer Unromanised title & artist for difficulty name (not recommended)</label>
+        </div> -->
+
+        <!-- Input for whether to reset the beatmap and mapset ids -->
+        <div class="checkbox">
+            <input type="checkbox" id="clearMapIdsCheckbox">
+            <label for="clearMapIdsCheckbox">Reset BeatmapID and BeatmapSetID</label>
+        </div>
+
+        <!-- Button to generate the maps -->
+        <button id="updateMapsButton" disabled>Update Maps</button>
+
+        <!-- Output display area -->
+        <pre id="output"></pre>
+    </div>
+
+    <noscript>
+        <div class="noscript-alert">
+            <strong>Warning!</strong> It seems that JavaScript is disabled in your browser. Please enable JavaScript for this tool to work.
+        </div>
+    </noscript>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
